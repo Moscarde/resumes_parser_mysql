@@ -1,3 +1,5 @@
+# Resume Parser - MySQL
+
 Este projeto tem como objetivo gerenciar o download e o armazenamento de arquivos de currículos a partir de uma planilha do Excel e fazer o processamento para atualizar um banco de dados. O fluxo de processamento é o seguinte:
 
 1. **Leitura da Planilha**: A função `update_db` lê a planilha `planilha_exemplos.xlsx` e extrai a coluna "Resume File" que contém as URLs dos arquivos.
