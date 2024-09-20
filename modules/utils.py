@@ -1,18 +1,21 @@
 import os
-import requests
+
 import fitz
+import requests
+
 
 def download_file(url, dest_folder):
     if not os.path.exists(dest_folder):
         os.makedirs(dest_folder)
 
     response = requests.get(url)
-    filename = os.path.join(dest_folder, url.split('/')[-1])
+    filename = os.path.join(dest_folder, url.split("/")[-1])
 
-    with open(filename, 'wb') as file:
+    with open(filename, "wb") as file:
         file.write(response.content)
 
     return filename
+
 
 def extract_text_from_pdf(pdf_path):
     # Abre o arquivo PDF a partir dos bytes

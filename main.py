@@ -1,6 +1,13 @@
 import pandas as pd
-from modules.db_operations import create_db_session, create_table, url_exists, add_resume
+
+from modules.db_operations import (
+    add_resume,
+    create_db_session,
+    create_table,
+    url_exists,
+)
 from modules.utils import download_file, extract_text_from_pdf
+
 
 def update_db(file_path, db_type):
     session, engine = create_db_session(db_type)
@@ -21,7 +28,7 @@ def update_db(file_path, db_type):
         return  # Finaliza se não houver novas URLs
 
     # 1.3 Processar cada nova URL
-    dest_folder = 'resume_files'
+    dest_folder = "resume_files"
 
     for url in new_urls:
         print(f"Baixando arquivo: {url}")
@@ -36,5 +43,6 @@ def update_db(file_path, db_type):
     session.close()
     print("Processamento concluído!")
 
+
 if __name__ == "__main__":
-    update_db('planilha_exemplos.xlsx', 'mysql')  # ou 'sqlite'
+    update_db("planilha_exemplos.xlsx", "mysql")  # ou 'sqlite'
